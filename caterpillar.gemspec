@@ -6,12 +6,12 @@ require 'caterpillar/version'
 Gem::Specification.new do |spec|
   spec.name          = "caterpillar"
   spec.version       = Caterpillar::VERSION
-  spec.authors       = ["Nitish Sharma"]
-  spec.email         = ["nitish.sharma@keepworks.com"]
+  spec.authors       = ["Nitish Sharma", "Nishit Hirani"]
+  spec.email         = ["nitish.sharma@keepworks.com", "nishit@keepworks.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{A simple ruby client for the Caterpillar API }
+  spec.description   = %q{Easily convert HTML to PDF in your Ruby app using Caterpillar API.}
+  spec.homepage      = "https://caterpillar.io"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
@@ -29,4 +29,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "httparty"
 end
