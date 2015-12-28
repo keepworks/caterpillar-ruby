@@ -1,5 +1,12 @@
-require "caterpillar/version"
+require 'caterpillar/version'
+require 'httparty'
 
 module Caterpillar
-  # Your code goes here...
+  class << self
+    attr_accessor :api_key
+
+    def configure
+      yield self
+    end
+  end
 end
