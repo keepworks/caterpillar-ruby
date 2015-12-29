@@ -1,3 +1,3 @@
-module Caterpillar
+class Caterpillar
   VERSION = "0.1.0"
 end
