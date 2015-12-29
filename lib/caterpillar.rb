@@ -5,22 +5,27 @@ require 'httparty'
 end
 
 class Caterpillar
-  include HTTParty
-
   class << self
     attr_accessor :api_key
     attr_accessor :api_version
+    attr_accessor :base_uri
 
     def configure
       yield self
     end
 
-    def create(options = {})
+    def create(source, options = {})
       raise CaterpillarError::NoApiKeyError.new('API Key is blank') if api_key.blank?
-      raise CaterpillarError::NoSourceError.new('Source is blank') if options[:source].blank?
+      raise CaterpillarError::NoSourceError.new('Source is blank') if source.blank?
+
+      query = {
+        source: source,
+        data: {
+          apiKey: api_key
+        }.merge!(options)
+      }
+
+      HTTParty.post("#{base_uri}/#{api_version}/documents/pdf", query: query)
     end
   end
-
-  self.api_version ||= 'v1'
-  base_uri 'https://api.caterpillar.io/' + self.api_version
 end
