@@ -18,6 +18,8 @@ class Caterpillar
       raise CaterpillarError::NoApiKeyError.new('API Key is blank') if api_key.blank?
       raise CaterpillarError::NoSourceError.new('Source is blank') if source.blank?
 
+      options = Hash[options.map { |key, value| [key.camelize, value] }]
+
       query = {
         source: source,
         data: {
