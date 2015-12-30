@@ -15,8 +15,8 @@ module Caterpillar
     end
 
     def create(source, options = {})
-      raise CaterpillarError::NoApiKeyError.new('API Key is blank') if api_key.blank?
-      raise CaterpillarError::NoSourceError.new('Source is blank') if source.blank?
+      raise NoApiKeyError.new('API Key is blank') if api_key.blank?
+      raise NoSourceError.new('Source is blank') if source.blank?
 
       options = Hash[options.map { |key, value| [key.camelize, value] }]
 
@@ -27,7 +27,12 @@ module Caterpillar
         }.merge!(options)
       }
 
-      HTTParty.post("#{base_uri}/#{api_version}/documents/pdf", query: query)
+      response = HTTParty.post("#{base_uri}/#{api_version}/documents/pdf", query: query)
+      parsed_response = JSON.parse(response)
+
+      raise APIError.new(parsed_response['message']) if parsed_response['status'] == 0
+
+      response
     end
   end
 end

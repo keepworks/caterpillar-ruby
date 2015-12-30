@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Nitish Sharma", "Nishit Hirani"]
   spec.email         = ["nitish.sharma@keepworks.com", "nishit@keepworks.com"]
 
-  spec.summary       = %q{A simple ruby client for the Caterpillar API }
+  spec.summary       = %q{A simple ruby client for the Caterpillar API}
   spec.description   = %q{Easily convert HTML to PDF in your Ruby app using Caterpillar API.}
   spec.homepage      = "https://caterpillar.io"
   spec.license       = "MIT"
