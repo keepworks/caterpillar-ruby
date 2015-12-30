@@ -1,5 +1,5 @@
 module Inflectors
-  def camelize
+  def camelcase
     self.to_s.gsub!(/(?:_|(\/))([a-z\d]*)/i) { $2.capitalize }
   end
 end

@@ -18,7 +18,7 @@ module Caterpillar
       raise NoApiKeyError.new('API Key is blank') if api_key.blank?
       raise NoSourceError.new('Source is blank') if source.blank?
 
-      options = Hash[options.map { |key, value| [key.camelize, value] }]
+      options = Hash[options.map { |key, value| [key.camelcase, value] }]
 
       query = {
         source: source,
