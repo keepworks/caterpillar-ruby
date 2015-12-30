@@ -4,7 +4,7 @@ require 'httparty'
   Dir[File.dirname(__FILE__) + '/' + dir + '/*.rb'].each { |file| require file }
 end
 
-class Caterpillar
+module Caterpillar
   class << self
     attr_accessor :api_key
     attr_accessor :api_version
