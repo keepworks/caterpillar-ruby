@@ -5,6 +5,11 @@ require 'httparty'
 end
 
 module Caterpillar
+  def validate_json(json)
+    JSON.parse(json)
+  rescue
+    false
+  end
   class << self
     attr_accessor :api_key
     attr_accessor :api_version
@@ -28,9 +33,9 @@ module Caterpillar
       }
 
       response = HTTParty.post("#{base_uri}/#{api_version}/documents/pdf", query: query)
-      parsed_response = JSON.parse(response)
 
-      raise APIError.new(parsed_response['message']) if parsed_response['status'] == 0
+      parsed_response = response.is_caterpillar_json?
+      raise APIError.new(parsed_response['message']) if parsed_response.present? && parsed_response['status'] == 0
 
       response
     end
