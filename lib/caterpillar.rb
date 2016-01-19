@@ -5,11 +5,6 @@ require 'httparty'
 end
 
 module Caterpillar
-  def validate_json(json)
-    JSON.parse(json)
-  rescue
-    false
-  end
   class << self
     attr_accessor :api_key
     attr_accessor :api_version
