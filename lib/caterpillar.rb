@@ -27,7 +27,7 @@ module Caterpillar
         }.merge!(options)
       }
 
-      response = HTTParty.post("#{base_uri}/#{api_version}/documents/pdf", query: query)
+      response = HTTParty.post("#{base_uri}/#{api_version}/documents/convert", query: query)
 
       parsed_response = response.is_caterpillar_json?
       raise APIError.new(parsed_response['message']) if parsed_response.present? && parsed_response['status'] == 0
