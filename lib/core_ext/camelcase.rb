@@ -1,6 +1,7 @@
 module Inflectors
   def camelcase
-    self.to_s.gsub!(/(?:_|(\/))([a-z\d]*)/i) { $2.capitalize }
+    string = self.to_s.downcase
+    string.include?('_') ? string.gsub!(/(?:_|(\/))([a-z\d]*)/i) { $2.capitalize.to_sym } : string.to_sym
   end
 end
 

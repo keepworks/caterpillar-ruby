@@ -1,10 +1,10 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'caterpillar/version'
+require 'caterpillar_ruby/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "caterpillar"
+  spec.name          = "caterpillar_ruby"
   spec.version       = Caterpillar::VERSION
   spec.authors       = ["Nitish Sharma", "Nishit Hirani"]
   spec.email         = ["nitish.sharma@keepworks.com", "nishit@keepworks.com"]
