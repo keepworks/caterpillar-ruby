@@ -1,15 +1,13 @@
-# Caterpillar
+# Caterpillar-Ruby
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/caterpillar`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This Ruby gem is a simple wrapper around the Caterpillar API. Caterpillar is a web service that allows you to convert html to pdf.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'caterpillar'
+gem 'caterpillar_ruby'
 ```
 
 And then execute:
@@ -18,24 +16,62 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install caterpillar
+    $ gem install caterpillar_ruby
 
 ## Usage
 
-TODO: Write usage instructions here
+Set the following attributes in you Ruby app:
 
-## Development
+```
+Caterpillar.api_key = 'YOUR_CATERPILLAR_API_KEY'
+Caterpillar.api_version =  'v1'
+Caterpillar.base_uri = 'https://api.caterpillar.io'
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake false` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+For a Rails app you can execute:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+    $ rails generate caterpillar_ruby:install
+
+or create an initializer `config/initializers/caterpillar.rb`
+
+```
+Caterpillar.configure do |config|
+  config.api_key = 'YOUR_CATERPILLAR_API_KEY'
+  config.api_version = 'v1'
+  config.base_uri = 'https://caterpillar.io/api'
+end
+```
+
+Once set, you can create a PDF document by calling:
+
+```
+Caterpillar.create(source: content, test: true)
+```
+
+The `create` call can also take a block, like so:
+
+```
+Caterpillar.create(source: content) do |file, response|
+  #file is a tempfile holding the response body
+  #reponse is the HTTParty response object
+end
+```
+
+The only required parameter is:
+  * `:source` - a string containing the HTML or URL for creating the document
+
+You might want to set other options in that hash:
+
+`create` will return an [HTTParty](https://github.com/jnunemaker/httparty) response object, which will be the new file (or errors, if the request was not valid).
+
+## Meta
+
+Maintained by [KeepWorks](http://www.keepworks.com/)
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/caterpillar.
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/keepworks/caterpillar.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
