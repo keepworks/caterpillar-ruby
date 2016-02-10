@@ -1,6 +1,6 @@
 # Caterpillar-Ruby
 
-This Ruby gem is a simple wrapper around the Caterpillar API. Caterpillar is a web service that allows you to convert html to pdf.
+This Ruby gem is a simple wrapper around the Caterpillar API. [Caterpillar](https://caterpillar.io) is a web service that allows you to convert html to pdf.
 
 ## Installation
 
