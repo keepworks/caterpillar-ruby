@@ -48,7 +48,7 @@ Once set, you can create a PDF document by calling:
 Caterpillar.create(source: content, grayscale: true, no_images: true)
 ```
 
-You can also create test PDF documents by calling (header and footer options donot work in test mode.):
+You can also create test PDF documents by calling (header and footer options donot work in test mode):
 
 ```
 Caterpillar.create(source: content, test: true)
