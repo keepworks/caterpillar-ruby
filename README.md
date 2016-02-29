@@ -38,11 +38,17 @@ or create an initializer `config/initializers/caterpillar.rb`
 Caterpillar.configure do |config|
   config.api_key = 'YOUR_CATERPILLAR_API_KEY'
   config.api_version = 'v1'
-  config.base_uri = 'https://caterpillar.io/api'
+  config.base_uri = 'https://api.caterpillar.io'
 end
 ```
 
 Once set, you can create a PDF document by calling:
+
+```
+Caterpillar.create(source: content, grayscale: true, no_images: true)
+```
+
+You can also create test PDF documents by calling (header and footer options donot work in test mode.):
 
 ```
 Caterpillar.create(source: content, test: true)
