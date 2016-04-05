@@ -1,6 +1,6 @@
 require 'httparty'
 
-['caterpillar_ruby', 'core_ext'].each do |dir|
+['caterpillar-ruby', 'core_ext'].each do |dir|
   Dir[File.dirname(__FILE__) + '/' + dir + '/*.rb'].each { |file| require file }
 end
 

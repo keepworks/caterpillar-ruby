@@ -7,7 +7,7 @@ This Ruby gem is a simple wrapper around the Caterpillar API. [Caterpillar](http
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'caterpillar_ruby'
+gem 'caterpillar-ruby'
 ```
 
 And then execute:
@@ -16,7 +16,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install caterpillar_ruby
+    $ gem install caterpillar-ruby
 
 ## Usage
 
@@ -30,7 +30,7 @@ Caterpillar.base_uri = 'https://api.caterpillar.io'
 
 For a Rails app you can execute:
 
-    $ rails generate caterpillar_ruby:install
+    $ rails generate caterpillar:install
 
 or create an initializer `config/initializers/caterpillar.rb`
 
