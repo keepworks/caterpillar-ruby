@@ -116,7 +116,7 @@ You might want to set other options in that hash:
 `:password_protect` | `Hash` | Refer next section for more details
 
 ## Password Protect
-You can passowrd protect PDF using AES 256, AES 128, RC4 (128 & 40) encryption alogithms supported by Adobe Reader.
+You can passowrd protect PDF using AES 256, AES 128, RC4 (128 & 40) encryption algorithms supported by Adobe Reader.
 
 To encrypt PDF you need to pass `:password_protect` hash in the `create` method call along with the following **required parameters**:
 * `:password` - a string containing the secret password which will be further used to unlock the PDF
