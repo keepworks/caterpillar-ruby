@@ -158,7 +158,7 @@ Caterpillar.create(
     source: content,
     password_protect: {
         pasword: 'YOUR_PASSWORD_HERE',
-        key_length: 128
+        key_length: 128,
         restrictions: {
             print: 'low',
             use_aes: 'y'

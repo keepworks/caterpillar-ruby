@@ -18,7 +18,11 @@ module Caterpillar
       raise NoApiKeyError.new('API Key is blank') if api_key.blank?
       raise NoSourceError.new('Source is blank') if options[:source].blank?
 
-      options = Hash[options.map { |key, value| [key.camelcase, value] }]
+      convert_camel_case = lambda do |hash|
+        Hash[hash.map { |key, value| [key.camelcase.to_sym, value.is_a?(Hash) ? convert_camel_case.call(value) : value ] }]
+      end
+
+      options = convert_camel_case.call(options);
 
       query = {
         source: options.delete(:source),
