@@ -68,6 +68,8 @@ end
 The only **required parameter** is:
   * `:source` - a string containing the HTML or URL for creating the document
 
+For a Rails app you can pass a view as source by converting it to an HTML string using [render_to_string](http://apidock.com/rails/ActionController/Base/render_to_string).
+
 You might want to set other options in that hash:
 
 | Option | Type | Description |
