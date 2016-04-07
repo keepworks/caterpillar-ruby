@@ -65,7 +65,7 @@ end
 
 `create` will return an [HTTParty](https://github.com/jnunemaker/httparty) response object, which will be the new file (or errors, if the request was not valid).
 
-The only required parameter is:
+The only **required parameter** is:
   * `:source` - a string containing the HTML or URL for creating the document
 
 You might want to set other options in that hash:
