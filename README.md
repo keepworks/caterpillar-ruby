@@ -59,7 +59,7 @@ The `create` call can also take a block, like so:
 ```
 Caterpillar.create(source: content) do |file, response|
   #file is a tempfile holding the response body
-  #reponse is the HTTParty response object
+  #response is the HTTParty response object
 end
 ```
 
@@ -116,13 +116,13 @@ You might want to set other options in that hash:
 `:password_protect` | `Hash` | Refer next section for more details
 
 ## Password Protect
-You can passowrd protect PDF using AES 256, AES 128, RC4 (128 & 40) encryption algorithms supported by Adobe Reader.
+You can password protect PDF using AES 256, AES 128, RC4 (128 & 40) encryption algorithms supported by Adobe Reader.
 
 To encrypt PDF you need to pass `:password_protect` hash in the `create` method call along with the following **required parameters**:
 * `:password` - a string containing the secret password which will be further used to unlock the PDF
-* `:key_length` - a number which defines the encryption alogirthm to be used. Values can be **40, 128 and 256** only.
+* `:key_length` - a number which defines the encryption algorithm to be used. Values can be **40, 128 and 256** only.
 
-You might want to set other options for each encryption alogrithm inside `:restrections` hash:
+You might want to set other options for each encryption algorithm inside `:restrictions` hash:
 
 *Key Length:* **40**
 
@@ -157,7 +157,7 @@ You might want to set other options for each encryption alogrithm inside `:restr
 Caterpillar.create(
     source: content,
     password_protect: {
-        pasword: 'YOUR_PASSWORD_HERE',
+        password: 'YOUR_PASSWORD_HERE',
         key_length: 128,
         restrictions: {
             print: 'low',
