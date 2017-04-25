@@ -1,4 +1,4 @@
-# Caterpillar-Ruby
+# Caterpillar
 
 This Ruby gem is a simple wrapper around the Caterpillar API. [Caterpillar](https://caterpillar.io) is a web service that allows you to convert html to pdf.
 
@@ -23,22 +23,20 @@ Or install it yourself as:
 Set the following attributes in you Ruby app:
 
 ```
-Caterpillar.api_key = 'YOUR_CATERPILLAR_API_KEY'
-Caterpillar.api_version =  'v1'
-Caterpillar.base_uri = 'https://api.caterpillar.io'
+Caterpillar.api_key = 'YOUR_CATERPILLAR_API_KEY' # required
+Caterpillar.api_version = 'YOUR_API_VERSION' # optional, default: 'v1'
+Caterpillar.base_uri = 'YOUR_API_BASE_URI' # optional, default: 'https://api.caterpillar.io'
 ```
 
 For a Rails app you can execute:
 
     $ rails generate caterpillar:install
 
-or create an initializer `config/initializers/caterpillar.rb` yourself and set custom values:
+or create an initializer `config/initializers/caterpillar.rb`:
 
 ```
 Caterpillar.configure do |config|
-  config.api_key = 'YOUR_CATERPILLAR_API_KEY' #Required
-  config.api_version = 'YOUR_API_VERSION'
-  config.base_uri = 'YOUR_API_BASE_URI'
+  config.api_key = 'YOUR_CATERPILLAR_API_KEY'
 end
 ```
 
@@ -58,8 +56,8 @@ The `create` call can also take a block, like so:
 
 ```
 Caterpillar.create(source: content) do |file, response|
-  #file is a tempfile holding the response body
-  #response is the HTTParty response object
+  # file is a tempfile holding the response body
+  # response is the HTTParty response object
 end
 ```
 
