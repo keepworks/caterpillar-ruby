@@ -10,7 +10,11 @@ module Caterpillar
     attr_accessor :api_version
     attr_accessor :base_uri
 
+
     def configure
+      @api_version = 'v1'
+      @base_uri = 'https://api.caterpillar.io'
+
       yield self
     end
 

@@ -32,13 +32,13 @@ For a Rails app you can execute:
 
     $ rails generate caterpillar:install
 
-or create an initializer `config/initializers/caterpillar.rb`
+or create an initializer `config/initializers/caterpillar.rb` yourself and set custom values:
 
 ```
 Caterpillar.configure do |config|
-  config.api_key = 'YOUR_CATERPILLAR_API_KEY'
-  config.api_version = 'v1'
-  config.base_uri = 'https://api.caterpillar.io'
+  config.api_key = 'YOUR_CATERPILLAR_API_KEY' #Required
+  config.api_version = 'YOUR_API_VERSION'
+  config.base_uri = 'YOUR_API_BASE_URI'
 end
 ```
 
