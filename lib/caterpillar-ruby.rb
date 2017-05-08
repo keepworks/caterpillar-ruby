@@ -24,14 +24,17 @@ module Caterpillar
 
       options.deep_modify_keys!(:camelize)
 
-      query = {
+      body = {
         source: options.delete(:source),
         data: {
           apiKey: api_key
         }.merge!(options)
-      }
+      }.to_json
 
-      response = HTTParty.post("#{base_uri}/#{api_version}/documents/convert", query: query).force_encoding('ISO-8859-1').encode('UTF-8')
+      response = HTTParty.post("#{base_uri}/#{api_version}/documents/convert",
+        body: body,
+        headers: { 'Content-Type' => 'application/json' }
+      ).force_encoding('ISO-8859-1').encode('UTF-8')
 
       parsed_response = response.is_caterpillar_json?
       raise APIError.new(parsed_response['message']) if parsed_response.present? && parsed_response['status'] == 0
