@@ -33,7 +33,7 @@ module Caterpillar
 
       response = HTTParty.post("#{base_uri}/#{api_version}/documents/convert",
         body: body,
-        headers: { 'Content-Type' => 'application/json'}
+        headers: { 'Content-Type' => 'application/json' }
       ).force_encoding('ISO-8859-1').encode('UTF-8')
 
       parsed_response = response.is_caterpillar_json?
